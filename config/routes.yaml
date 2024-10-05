@@ -1,4 +1,4 @@
 # config/routes.yaml
 app_homepage:
-  path: /home/{name}
+  path: /home
   controller: App\Controller\IndexController::home

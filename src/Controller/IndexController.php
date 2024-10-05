@@ -8,12 +8,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
-    #[Route('/home/{name}', name: 'app_homepage')]
-    public function home(string $name): Response
+    #[Route('/home', name: 'app_homepage')]
+    public function home(): Response
     {
-        return $this->render('index/index.html.twig', [
-            'message' => 'Ma première page Symfony',
-            'name' => $name
+        $articles = ['Artcile1', 'Article 2','Article 3'];
+        return $this->render('articles/index.html.twig', [
+            'articles'=>$articles
         ]);
     }
 }
