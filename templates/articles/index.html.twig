@@ -3,6 +3,19 @@
 {% block title %}Liste des Articles{% endblock %}
 
 {% block body %}
+    {{ form_start(form) }}
+    <div class="form-row align-items-end">
+        <div class="col">
+            {{ form_row(form.nom) }}
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Rechercher</button>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+
     {% if articles %}
         <table id="articles" class="table table-striped">
             <thead>
@@ -22,8 +35,7 @@
                         <td>
                             <a href="/article/{{ article.id }}" class="btn btn-dark">Détails</a>
                             <a href="/article/edit/{{ article.id }}" class="btn btn-dark">Modifier</a>
-                            <a href="/article/delete/{{ article.id }}" class="btn btn-danger" 
-                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article?');">Supprimer</a>
+                            <a href="/article/delete/{{ article.id }}" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article?');">Supprimer</a>
                         </td>
                     </tr>
                 {% endfor %}
