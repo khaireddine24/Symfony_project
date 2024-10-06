@@ -1,4 +1,4 @@
-# Exercices Pratiques Symfony (TP)  <img src='https://github.com/user-attachments/assets/f7bbbb12-ee26-4032-af16-e6399ec7fd5a' height=50 width=50/>
+# Exercices Pratiques Symfony (TP)  <img src='https://github.com/user-attachments/assets/f7bbbb12-ee26-4032-af16-e6399ec7fd5a' height=100 width=100/>
 
 
 Ce dépôt contient une série de 7 exercices pratiques (TP) réalisés avec le framework Symfony. Chaque exercice est conçu pour renforcer la compréhension et l'application des concepts Symfony.
