@@ -3,22 +3,27 @@
 {% block body %}
 {% if articles %}
 <table id="articles" class="table table-striped">
-    <thead>
-        <tr>
-            <th>Article</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
+<thead>
+    <tr>
+        <th>Nom</th>
+        <th>Prix</th>
+        <th>Actions</th>
+    </tr>
+</thead>
+<tbody>
     {% for article in articles %}
         <tr>
-            <td>{{ article }}</td>
+            <td>{{ article.nom }}</td>
+            <td>{{ article.prix }}</td>
             <td>
-                <a href="/article/1" class="btn btn-dark">Détails</a>
+                <a href="/article/{{ article.id }}" class="btn btn-dark">Détails</a>
+                <a href="/article/edit/{{ article.id }}" class="btn btndark">Modifier</a>
+                <a href="/article/delete/{{ article.id }}" class="btn btn-danger"
+                onclick="return confirm('Etesvous sûr de supprimer cet article?');">Supprimer</a>
             </td>
-        </tr>
+    </tr>
     {% endfor %}
-    </tbody>
+</tbody>
 </table>
 {% else %}
     <p>Aucun articles</p>

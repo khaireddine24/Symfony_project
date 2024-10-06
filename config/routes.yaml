@@ -1,4 +1,5 @@
-# config/routes.yaml
-app_homepage:
-  path: /home
-  controller: App\Controller\IndexController::home
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
