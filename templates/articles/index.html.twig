@@ -1,31 +1,35 @@
 {% extends 'base.html.twig' %}
-{% block title%} Liste des Articles{% endblock %}
+
+{% block title %}Liste des Articles{% endblock %}
+
 {% block body %}
-{% if articles %}
-<table id="articles" class="table table-striped">
-<thead>
-    <tr>
-        <th>Nom</th>
-        <th>Prix</th>
-        <th>Actions</th>
-    </tr>
-</thead>
-<tbody>
-    {% for article in articles %}
-        <tr>
-            <td>{{ article.nom }}</td>
-            <td>{{ article.prix }}</td>
-            <td>
-                <a href="/article/{{ article.id }}" class="btn btn-dark">Détails</a>
-                <a href="/article/edit/{{ article.id }}" class="btn btndark">Modifier</a>
-                <a href="/article/delete/{{ article.id }}" class="btn btn-danger"
-                onclick="return confirm('Etesvous sûr de supprimer cet article?');">Supprimer</a>
-            </td>
-    </tr>
-    {% endfor %}
-</tbody>
-</table>
-{% else %}
-    <p>Aucun articles</p>
-{% endif %}
+    {% if articles %}
+        <table id="articles" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Catégorie</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td>{{ article.nom }}</td>
+                        <td>{{ article.prix }}</td>
+                        <td>{{ article.category.titre }}</td>
+                        <td>
+                            <a href="/article/{{ article.id }}" class="btn btn-dark">Détails</a>
+                            <a href="/article/edit/{{ article.id }}" class="btn btn-dark">Modifier</a>
+                            <a href="/article/delete/{{ article.id }}" class="btn btn-danger" 
+                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article?');">Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun article trouvé.</p>
+    {% endif %}
 {% endblock %}

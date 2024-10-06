@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Form\ArticleType;
+use App\Entity\Category;
+use App\Form\CategoryType;
 class IndexController extends AbstractController
 
 {
@@ -83,18 +85,34 @@ class IndexController extends AbstractController
 
 #[Route('/article/delete/{id}', name: 'delete_article', methods: ['DELETE','GET'])]
 public function delete(Request $request, $id, EntityManagerInterface $entityManager): Response
-
 {
-$article = $entityManager->getRepository(Article::class)->find($id);
-if (!$article) {
-    throw $this->createNotFoundException('Aucun article trouvé pour cet ID: ' . $id);
-}
-$entityManager->remove($article);
-$entityManager->flush();
+    $article = $entityManager->getRepository(Article::class)->find($id);
+    if (!$article) {
+        throw $this->createNotFoundException('Aucun article trouvé pour cet ID: ' . $id);
+    }
+    $entityManager->remove($article);
+    $entityManager->flush();
 
-$response = new Response();
-$response->send();
-return $this->redirectToRoute('article_list');
+    $response = new Response();
+    $response->send();
+    return $this->redirectToRoute('article_list');
 }
+
+    #[Route('/category/newCat', name: 'new_category', methods: ['POST','GET'])]
+    public function newCategory(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $category = new Category();
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $category = $form->getData();
+            $entityManager->persist($category);
+            $entityManager->flush();
+        }
+        return $this->render('categories/NewCategory.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
 
 }
