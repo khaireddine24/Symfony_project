@@ -34,8 +34,7 @@ Ce dépôt contient une série de 7 exercices pratiques (TP) réalisés avec le 
 - **Objectifs :** L'objectif de cette section est de fournir une compréhension approfondie de la manière de définir des entités dans Symfony 7, d'établir des relations entre elles et d'utiliser l'ORM Doctrine pour interagir avec la base de données.
 - **Lien PDF :** [TP6_Symfony.pdf](https://github.com/user-attachments/files/17270924/TP6_Symfony.pdf)
 
-## TP7 : Titre
-- **Description :** Décrivez brièvement ce que cet exercice implique.
+## TP7 : Formulaires de Recherche en Symfony 7
 - **Objectifs :** L'objectif de cette section est de former les participants à la création de formulaires de recherche efficaces et intuitifs dans Symfony 7. Les formulaires de recherche permettent aux utilisateurs de filtrer et de rechercher des données spécifiques dans une application, améliorant ainsi l'expérience utilisateur et l'accessibilité des informations.
 - **Lien PDF :** [TP7_Symfony.pdf](https://github.com/user-attachments/files/17270929/TP7_Symfony.pdf)
 
